@@ -14,7 +14,7 @@ const SearchResults = ({ movies, searchTerm, setMovies, currentPage, setCurrentP
   }, [location.state, setMovies, setCurrentPage]);
 
   const handlePageChange = async (page) => {
-    const response = await axios.get(`http://www.omdbapi.com/?apikey=5d4df533&s=${searchTerm}&page=${page}`);
+    const response = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}&page=${page}`);
     setMovies(response.data.Search || []);
     setCurrentPage(page);
   };
