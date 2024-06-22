@@ -13,7 +13,7 @@ const Home = ({ setSearchTerm, setMovies, setCurrentPage, setTotalResults }) => 
     e.preventDefault();
     setSearchTerm(input);
     setCurrentPage(1);
-    const response = await axios.get(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${input}&page=1`);
+    const response = await axios.get(`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${input}&page=1`);
     setMovies(response.data.Search || []);
     setTotalResults(response.data.totalResults);
     navigate('/searchResults');
